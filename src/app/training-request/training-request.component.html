@@ -1,0 +1,54 @@
+<div class="col-11 col-sm-10 col-md-8 col-lg-6 container-fluid">
+    <form #form="ngForm">
+        <br>
+        <h2 class="text-center">Send Request</h2>
+        <br>
+
+        <div class="row form-group">
+            <label for="timeSlotFieldId">
+                <h5>Time Slot</h5>
+            </label>
+            <select class="form-control" id="timeSlotFieldId"
+                    name="timeSlotField">
+                <option selected>Select Training Time Slot</option>
+                <option *ngFor="let timeslot of trainingTimeSlots">
+                    {{ timeslot }}
+                </option>
+            </select>
+        </div>
+
+        <div class="row form-group">
+            <label for="startDate">
+                <h5>Start Date</h5>
+            </label>
+            <input  type="text"
+                placeholder="Enter Start Date"
+                class="form-control"
+                bsDatepicker
+                [bsConfig]="{ adaptivePosition: true }"
+                id="startDate">
+        </div>
+
+        <div class="row form-group">
+            <label for="endDate">
+                <h5>End Date</h5>
+            </label>
+            <input  type="text"
+                    placeholder="Enter End Date"
+                    class="form-control"
+                    bsDatepicker
+                    [bsConfig]="{ adaptivePosition: true }"
+                    id="endDate">
+        </div>
+        
+        <br>
+
+        <div class="row form-group">
+            <button class="btn btn-primary btn-block btn-lg" type="submit">
+                Send Request
+            </button>
+        </div>
+        
+
+    </form>
+</div>

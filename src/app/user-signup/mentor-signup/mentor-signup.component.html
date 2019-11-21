@@ -1,0 +1,163 @@
+<div class="col-11 col-sm-10 col-md-8 col-lg-6 container-fluid">
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+        <br>
+        <h2 class="text-center">Trainer Register</h2>
+        <br>
+
+        <div class="row form-group">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                    <label for="firstNameFieldId">
+                        First Name
+                    </label>
+                    <input type="text" class="form-control" 
+                           name="firstNameField" id="firstNameFieldId" 
+                           [(ngModel)] = "mentor.FirstName"
+                           required #firstNameField = "ngModel"
+                           [class.field-error] = "form.submitted && firstNameField.invalid">
+                    <div [hidden] = "!form.submitted || firstNameField.valid"
+                         class="alert alert-danger">
+                            Please provide first name
+                    </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                    <label for="firstNameFieldId">
+                        Last Name
+                    </label>
+                    <input type="text" class="form-control" 
+                           name="lastNameField" id="lastNameFieldId" 
+                           [(ngModel)] = "mentor.LastName"
+                           required #lastNameField = "ngModel">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="userNameFieldId">
+                User Name
+            </label>
+            <input type="text" class="form-control" 
+                name="userNameField" id="userNameFieldId" 
+                [(ngModel)] = "mentor.UserName"
+                required #userNameField = "ngModel"
+                [class.field-error] = "form.submitted && userNameField.invalid">
+            <div [hidden] = "!form.submitted || userNameField.valid"
+                 class="alert alert-danger">
+               Please provide User Name
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="emailIdFieldId">
+                Email
+            </label>
+            <input type="text" class="form-control" 
+                    name="emailIdField" id="emailIdFieldId" 
+                    [(ngModel)] = "mentor.EmailId"
+                    required #emailIdField = "ngModel"
+                    [class.field-error] = "form.submitted && emailIdField.invalid">
+            <div [hidden] = "!form.submitted || emailIdField.valid"
+                 class="alert alert-danger">
+                Please provide Email Id
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="contactNumberFieldId">
+                Contact Number
+            </label>
+            <input type="text" class="form-control" 
+                   name="contactNumberField" id="contactNumberFieldId" 
+                   [(ngModel)] = "mentor.ContactNumber"
+                   required #contactNumberField = "ngModel">
+        </div>
+
+        <div class="row form-group">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                <label for="passwordFieldId">
+                    Enter Password
+                </label>
+                <input type="password" class="form-control" 
+                       name="passwordField" id="passwordFieldId" 
+                       [(ngModel)] = "mentor.Password"
+                       minlength="7" pattern="(?=.*\d).{7,}"
+                       required #passwordField = "ngModel"
+                       [class.field-error] = "form.submitted && passwordField.invalid">
+                <div [hidden] = "!form.submitted || passwordField.valid"
+                     class="alert alert-danger">
+                     Password empty or incorrect
+                </div>
+            </div>
+                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                    <label for="confirmPassFieldId">
+                        Confirm Password
+                    </label>
+                    <input type="password" class="form-control" 
+                           name="confirmPassField" id="confirmPassFieldId" 
+                           ngModel
+                           required #confirmPassField = "ngModel"
+                           [class.field-error] = "form.submitted && confirmPassField.invalid">
+                    <div [hidden] = "!form.submitted || confirmPassField.valid"
+                         class="alert alert-danger">
+                        Please confirm Password
+                    </div>
+                </div>
+        </div>
+
+        <label class="text-center" for="confirmPassFieldId" id="passwordInstruction">
+                (Password length should be greater than 6, having at least 1 digit)
+        </label>
+
+        <div class="form-group">
+            <label for="linkedInUrlFieldId">
+                LinkedIn Url
+            </label>
+            <input type="text" class="form-control" 
+                   name="linkedInUrlField" id="linkedInUrlFieldId" 
+                   [(ngModel)] = "mentor.LinkedInUrl"
+                   required #contactNumberField = "ngModel">
+        </div>
+
+        <div class="form-group">
+            <label for="experienceFieldId">
+                Experience
+            </label>
+            <input type="number" class="form-control" 
+                   name="experienceField" id="experienceFieldId" 
+                   [(ngModel)] = "mentor.YearsOfExperience"
+                   required #contactNumberField = "ngModel">
+        </div>
+
+        <div class="form-group">
+            <label for="technologyFieldId">
+                Technology
+            </label>
+            <select class="form-control" id="technologyFieldId"
+                    name="technologyField" 
+                    [(ngModel)] = "technologyName"
+                    required #technologyField = "ngModel"
+                    [class.field-error] = "form.submitted && technologyField.invalid">
+                <option *ngFor="let technology of technologyList">
+                    {{ technology.name }}
+                </option>
+            </select>
+            <div [hidden] = "!form.submitted || technologyField.valid"
+                 class="alert alert-danger">
+                Please select a technology.
+            </div>
+        </div>
+
+        <button class="btn btn-success btn-block btn-lg text-center" type="submit">
+            Register
+        </button>
+
+        <br>
+
+        <h6 class="text-center">
+            Already a <a [routerLink]="['/user-login']">Trainer</a> ?
+        </h6>
+                
+        <br>
+
+        {{ isMentorCreated | json }}
+
+    </form>
+</div>

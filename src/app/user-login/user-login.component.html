@@ -1,0 +1,63 @@
+<div class="col-11 col-sm-10 col-md-8 col-lg-6 container-fluid">
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+        <br>
+        <h2 class="text-center">Login</h2>
+        <br>
+        <div class="row form-group">
+            <label for="userNameId">
+                Enter Username:
+            </label>
+        </div>
+        <div class="row form-group">
+            <input type="text" class="form-control" 
+                   name="userName" id="userNameId" 
+                   [(ngModel)] = "userCredentials.userName"
+                   required #userNameField = "ngModel"
+                   [class.field-error] = "form.submitted && userNameField.invalid">
+            <div [hidden] = "!form.submitted || userNameField.valid"
+                 class="col-12 col-sm-12 col-md-12 col-lg-12 alert alert-danger">
+                   Username is required
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <label for="userPassword">
+                Enter password:
+            </label>
+        </div>
+
+        <div class="row form-group">
+            <input type="password" class="form-control" 
+                   name="passField" id="passFieldId" 
+                   [(ngModel)] = "userCredentials.password"
+                   required #passField = "ngModel"
+                   [class.field-error] = "form.submitted && passField.invalid">
+            <div [hidden] = "!form.submitted || passField.valid"
+                 class="col-12 col-sm-12 col-md-12 col-lg-12 alert alert-danger">
+                  Password is required
+            </div>
+            
+        </div>
+
+        <br>
+        <div class="row form-group">
+            <button class="btn btn-success btn-block btn-lg" type="submit">
+                Sign in
+            </button>
+        </div>
+
+        <br>
+        
+        <h6 class="text-center">
+            Not registered yet ? 
+            <a [routerLink]="['/user-signup']">User</a>
+        </h6>
+        
+        <br>
+
+        <h6 class="text-center">
+            Not registered yet ? 
+            <a [routerLink]="['/trainer-signup']">Trainer</a>
+        </h6>
+    </form>
+</div>
