@@ -6,19 +6,18 @@
         <thead class="thead-dark">
             <tr>
                 <th scope="col">Technology</th>
-                <th scope="col">Trainer Name</th>
+                <th scope="col">User Name</th>
                 <th scope="col">Start Date</th>
                 <th scope="col">End Date</th>
                 <th scope="col">Timings</th>
                 <th scope="col">Progress</th>
-                <th scope="col">Your Rating</th>
-                <th scope="col">Edit Rating</th>
+                <th scope="col">Ratings</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let training of trainingList; index as i;">
                 <td>{{ training.technologyName }}</td>
-                <td>{{ training.trainerName }}</td>
+                <td>{{ training.userName }}</td>
                 <td>{{ training.startDate | date: 'fullDate' }}</td>
                 <td>{{ training.endDate | date: 'fullDate' }}</td>
                 <td>{{ training.timings }}</td>
@@ -32,24 +31,7 @@
                     </div>
                 </td>
                 <td>
-                    <span *ngIf="enableEditIndex != i">
-                        {{ training.rating }}
-                    </span>
-                    <input type="number" [(ngModel)]="training.rating"
-                           *ngIf="enableEdit && enableEditIndex == i"
-                           step="0.1" />
-                </td>
-                <td>
-                    <button class="btn btn-success"
-                            *ngIf="enableEdit && enableEditIndex ==i"
-                            (click)="saveSegment()" type="submit">
-                        Save
-                    </button>
-                    <button class="btn btn-success"
-                            *ngIf="i != enableEditIndex || enableEditIndex == null"
-                            (click)="enableEditMethod($event, i)" type="submit">
-                        Edit
-                    </button>
+                    {{ training.rating }}
                 </td>
             </tr>
         </tbody>

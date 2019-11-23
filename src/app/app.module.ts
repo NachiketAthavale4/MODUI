@@ -23,6 +23,10 @@ import { MentorWelcomeScreenComponent } from './mentor-dashboard/mentor-welcome-
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard/admin-dashboard.component';
 import { CompletedTrainingsComponent } from './user-dashboard/completed-trainings/completed-trainings.component';
 import { CurrentTrainingComponent } from './user-dashboard/current-training/current-training.component';
+import { CompletedTrainingComponent } from './mentor-dashboard/completed-training/completed-training.component';
+import { MentorCurrentTrainingComponent } from './mentor-dashboard/mentor-current-training/mentor-current-training.component';
+import { AdminCurrentTrainingComponent } from './admin-dashboard/admin-current-training/admin-current-training.component';
+import { AdminCompletedTrainingComponent } from './admin-dashboard/admin-completed-training/admin-completed-training.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +45,11 @@ import { CurrentTrainingComponent } from './user-dashboard/current-training/curr
     MentorWelcomeScreenComponent,
     AdminDashboardComponent,
     CompletedTrainingsComponent,
-    CurrentTrainingComponent
+    CurrentTrainingComponent,
+    CompletedTrainingComponent,
+    MentorCurrentTrainingComponent,
+    AdminCurrentTrainingComponent,
+    AdminCompletedTrainingComponent
   ],
   imports: [
     BrowserModule,
