@@ -13,7 +13,11 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { HttpClientModule } from '@angular/common/http';
-
+import { WelcomeScreenComponent } from './dashboard/welcome/welcome-screen/welcome-screen.component';
+import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
+import { UserWelcomeScreenComponent } from './dashboard/user-welcome-screen/user-welcome-screen.component';
+import { MentorWelcomeScreenComponent } from './dashboard/mentor-welcome-screen/mentor-welcome-screen.component';
+import { AdminWelcomeScreenComponent } from './dashboard/admin-welcome-screen/admin-welcome-screen.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,12 @@ import { HttpClientModule } from '@angular/common/http';
     UserLoginComponent,
     UserSignupComponent,
     MentorSignupComponent,
-    TrainingRequestComponent
+    TrainingRequestComponent,
+    WelcomeScreenComponent,
+    DashboardComponent,
+    UserWelcomeScreenComponent,
+    MentorWelcomeScreenComponent,
+    AdminWelcomeScreenComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +40,8 @@ import { HttpClientModule } from '@angular/common/http';
       { path: 'user-login', component: UserLoginComponent },
       { path: 'user-signup', component: UserSignupComponent },
       { path: 'trainer-signup', component: MentorSignupComponent },
-      { path: '', redirectTo: 'user-login', pathMatch: 'full' }
+      { path: '', component: DashboardComponent }
+      //{ path: '', redirectTo: 'user-login', pathMatch: 'full' }
     ]),
     BsDatepickerModule.forRoot(),
     BrowserAnimationsModule,

@@ -55,10 +55,6 @@ export class MentorSignupComponent implements OnInit {
       },
       error: err => console.log(err)
     });
-    this.register.registerUser(this.mentor).subscribe({
-      next: () => this.isMentorCreated = "Successful",
-      error: err => console.log(err)
-    });
   }
 
 }
