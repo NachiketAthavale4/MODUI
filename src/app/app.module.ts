@@ -21,6 +21,7 @@ import { TrainingRequestComponent } from './user-dashboard/training-request/trai
 import { MentorDashboardComponent } from './mentor-dashboard/mentor-dashboard/mentor-dashboard.component';
 import { MentorWelcomeScreenComponent } from './mentor-dashboard/mentor-welcome-screen/mentor-welcome-screen.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard/admin-dashboard.component';
+import { CompletedTrainingsComponent } from './user-dashboard/completed-trainings/completed-trainings.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard/admin
     TrainingRequestComponent,
     MentorDashboardComponent,
     MentorWelcomeScreenComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    CompletedTrainingsComponent
   ],
   imports: [
     BrowserModule,
