@@ -1,0 +1,29 @@
+<div class="container-fluid col-12 col-sm-12 col-md-12 col-lg-12">
+    <h2 class="text-center">Payment - Info</h2>
+    <br>
+        <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Technology</th>
+                    <th scope="col">Payment Status</th>
+                    <th scope="col">Tax</th>
+                    <th scope="col">Fees</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let payment of paymentList; index as i;">
+                    <td>{{ payment.TechnologyName }}</td>
+                    <td>{{ payment.Status }}</td>
+                    <td>
+                        <i class="fa fa-inr"></i>
+                        {{ payment.Fees * 0.06 }}
+                    </td>
+                    <td>
+                        <i class="fa fa-inr"></i>
+                        {{ payment.Fees }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

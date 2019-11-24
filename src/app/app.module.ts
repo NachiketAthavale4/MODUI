@@ -33,6 +33,7 @@ import { AddBlockUserComponent } from './admin-dashboard/add-block-user/add-bloc
 import { AdminAddRemoveTechnologyComponent } from './admin-dashboard/admin-add-remove-technology/admin-add-remove-technology.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { AdminPaymentComponent } from './admin-dashboard/admin-payment/admin-payment.component';
+import { UserPaymentComponent } from './user-dashboard/user-payment/user-payment.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { AdminPaymentComponent } from './admin-dashboard/admin-payment/admin-pay
     MentorProfileComponent,
     AddBlockUserComponent,
     AdminAddRemoveTechnologyComponent,
-    AdminPaymentComponent
+    AdminPaymentComponent,
+    UserPaymentComponent
   ],
   imports: [
     BrowserModule,
