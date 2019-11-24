@@ -1,0 +1,146 @@
+<div class="container-fluid">
+    <h2 class="text-center">Trainer Profile</h2>
+    <br>
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-5 col-lg-4">
+            <div class="d-flex justify-content-center">
+                <img src="../../../assets/images/default_user.png" 
+                     style="max-width: 50%; height: auto;"
+                     class="border border-dark">
+            </div>
+            <br>
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-success" type="submit"
+                        *ngIf="!editSettingsValue"
+                        (click)="onEditSettingsClicked()">
+                    Edit Profile
+                </button>
+                <button class="btn btn-success" type="submit"
+                        *ngIf="editSettingsValue"
+                        (click)="updateUser()">
+                    Save Profile
+                </button>
+            </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-7 col-lg-8">
+            <table class="table table-bordered table-striped">
+                    <tbody>
+                        <tr>
+                            <td>
+                                Name
+                            </td>
+                            <td>
+                                <span *ngIf="!editSettingsValue">
+                                    {{user.FirstName}} {{user.LastName}}
+                                </span>
+                                <span *ngIf="editSettingsValue">
+                                    <h6>First Name</h6>
+                                    <input type="text" 
+                                           [(ngModel)]="user.FirstName"
+                                           class="form-control"
+                                           placeholder="First Name">
+                                    <h6>Last Name</h6>
+                                    <input type="text" 
+                                           [(ngModel)]="user.LastName"
+                                           class="form-control"
+                                           placeholder="Last Name">
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Email-id
+                            </td>
+                            <td>
+                                <span *ngIf="!editSettingsValue">
+                                    {{user.EmailId}}
+                                </span>
+                                <input type="text" 
+                                       [(ngModel)]="user.EmailId"
+                                       class="form-control"
+                                       *ngIf="editSettingsValue"
+                                       placeholder="Email Id">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                User Name
+                            </td>
+                            <td>
+                                <span *ngIf="!editSettingsValue">
+                                    {{user.UserName}}
+                                </span>
+                                <input type="text" 
+                                       [(ngModel)]="user.UserName"
+                                       class="form-control"
+                                       *ngIf="editSettingsValue"
+                                       placeholder="User Name">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Contact Number
+                            </td>
+                            <td>
+                                <span *ngIf="!editSettingsValue">
+                                    {{user.ContactNumber}}
+                                </span>
+                                <input type="number" 
+                                       [(ngModel)]="user.ContactNumber"
+                                       minlength="10" maxlength="10"
+                                       class="form-control"
+                                       *ngIf="editSettingsValue"
+                                       placeholder="Contact Number">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Linked In Profile
+                            </td>
+                            <td>
+                                <span *ngIf="!editSettingsValue">
+                                    {{user.LinkedInUrl}}
+                                </span>
+                                <input type="text" 
+                                       [(ngModel)]="user.LinkedInUrl"
+                                       class="form-control"
+                                       *ngIf="editSettingsValue"
+                                       placeholder="Linked In Profile">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Technology
+                            </td>
+                            <td>
+                                <span *ngIf="!editSettingsValue">
+                                    {{user.TechnologyName}}
+                                </span>
+                                <input type="text" 
+                                       [(ngModel)]="user.TechnologyName"
+                                       class="form-control"
+                                       *ngIf="editSettingsValue"
+                                       placeholder="Technology Name">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Experience (in Years)
+                            </td>
+                            <td>
+                                <span *ngIf="!editSettingsValue">
+                                    {{user.YearsOfExperience}}
+                                </span>
+                                <input type="number" 
+                                       [(ngModel)]="user.YearsOfExperience"
+                                       class="form-control"
+                                       *ngIf="editSettingsValue"
+                                       placeholder="Experience"
+                                       step="0.5">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+    </div>
+</div>
