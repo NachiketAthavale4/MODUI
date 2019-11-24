@@ -1,0 +1,81 @@
+<div class="container-fluid col-12 col-sm-12 col-md-12 col-lg-12">
+    <h2 class="text-center">All Payment Users</h2>
+    <br>
+        <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">User Name</th>
+                    <th scope="col">Technology</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Fees</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of userList; index as i;">
+                    <td>{{ user.UserName }}</td>
+                    <td>{{ user.TechnologyName }}</td>
+                    <td>{{ user.Status }}</td>
+                    <td>
+                        <i class="fa fa-inr"></i>
+                        {{ user.Fees }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <h2 class="text-center">All Payment Mentors</h2>
+    <br>
+    <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Trainer Name</th>
+                        <th scope="col">Technology</th>
+                        <th scope="col">Fees</th>
+                        <th scope="col">Commission</th>
+                        <th scope="col">Trainer Fees</th>
+                        <th scope="col">Edit Payment/Commission</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let trainer of trainerList; index as i;">
+                        <td>{{ trainer.UserName }}</td>
+                        <td>{{ trainer.TechnologyName }}</td>
+                        <td>
+                            <i class="fa fa-inr"></i>
+                            {{ trainer.Fees }}
+                        </td>
+                        <td>
+                            <span *ngIf="enableEditIndex != i">
+                                <i class="fa fa-inr"></i>
+                                {{ trainer.Commission }}
+                            </span>
+                            <input type="number" class="form-control"
+                                   *ngIf="enableEdit && enableEditIndex ==i"
+                                   [(ngModel)] = "trainer.Commission">
+                        </td>
+                        <td>
+                            <i class="fa fa-inr"></i>
+                            {{ trainer.Fees - trainer.Commission }}
+                        </td>
+                        <td>
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-success"
+                                        *ngIf="i != enableEditIndex || enableEditIndex == null"
+                                        (click)="enableEditMethod($event, i)">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                                <button class="btn btn-success"
+                                        *ngIf="enableEdit && enableEditIndex ==i"
+                                        (click)="saveSegment()" type="submit">
+                                    Save
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>

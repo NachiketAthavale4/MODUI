@@ -32,6 +32,7 @@ import { MentorProfileComponent } from './mentor-dashboard/mentor-profile/mentor
 import { AddBlockUserComponent } from './admin-dashboard/add-block-user/add-block-user.component';
 import { AdminAddRemoveTechnologyComponent } from './admin-dashboard/admin-add-remove-technology/admin-add-remove-technology.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { AdminPaymentComponent } from './admin-dashboard/admin-payment/admin-payment.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     UserProfileComponent,
     MentorProfileComponent,
     AddBlockUserComponent,
-    AdminAddRemoveTechnologyComponent
+    AdminAddRemoveTechnologyComponent,
+    AdminPaymentComponent
   ],
   imports: [
     BrowserModule,
