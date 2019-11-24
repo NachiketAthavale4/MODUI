@@ -1,0 +1,91 @@
+<div class="container-fluid col-12 col-sm-12 col-md-12 col-lg-12">
+    <h2 class="text-center">Payment Details</h2>
+    <br>
+        <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Technology</th>
+                    <th scope="col">User Name</th>
+                    <th scope="col">Fees</th>
+                    <th scope="col">Trainer Fees</th>
+                    <th scope="col">Training Progress</th>
+                    <th scope="col">Withdraw Money</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let payment of paymentList; index as i;">
+                    <td>{{ payment.training.technologyName }}</td>
+                    <td>{{ payment.training.userName }}</td>
+                    <td>
+                        <i class="fa fa-inr"></i>
+                        {{ payment.fees }}
+                    </td>
+                    <td>
+                        <i class="fa fa-inr"></i>
+                        {{ payment.fees - payment.commission }}
+                    </td>
+                    <td>
+                        <div class="progress-bar" role="progressbar"
+                             [style.width]="payment.training.progress + '%'"
+                             aria-valuemin="0" aria-valuemax="100">
+                             {{payment.training.progress}}%
+                        </div>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-success"
+                                (click)="openModal(template,i)">
+                            Withdraw
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <ng-template #template>
+        <div class="modal-header">
+          <h4 class="modal-title pull-left">Withdraw Money</h4>
+          <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <tbody>
+                        <tr>
+                            <td>Technology</td>
+                            <td>{{ withdrawPayment.training.technologyName }}</td>
+                        </tr>
+                        <tr>
+                            <td>Trainer's Fees</td>
+                            <td>{{ withdrawPayment.fees - withdrawPayment.commission }}</td>
+                        </tr>
+                        <tr>
+                            <td>Training Progress</td>
+                            <td>{{ withdrawPayment.training.progress }}%</td>
+                        </tr>
+                        <tr>
+                            <td>Amount to be Withdrawn</td>
+                            <td>{{ (withdrawPayment.fees - withdrawPayment.commission)*withdrawPayment.training.progress/100 }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <div class="alert alert-success"
+               [hidden]="!withdrawClicked">
+              Amount Withdrawn
+          </div>
+          <button type="button" class="btn btn-primary"
+                  (click)="onWithDrawClicked();">
+              Withdraw
+          </button>
+          <button type="button" class="btn btn-secondary" 
+                  aria-label="Close" (click)="modalRef.hide()">
+              Close
+          </button>
+        </div>
+      </ng-template>

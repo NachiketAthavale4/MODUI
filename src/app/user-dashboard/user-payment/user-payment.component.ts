@@ -17,13 +17,13 @@ export class UserPaymentComponent implements OnInit {
     {
       TechnologyName : "Angular",
       Status : "Done",
-      Tax : 1000,
+      Tax : null,
       Fees : 6000
     },
     {
       TechnologyName : "Bootstrap",
       Status : "Pending",
-      Tax : 600,
+      Tax : null,
       Fees : 4000
     }
   ];
