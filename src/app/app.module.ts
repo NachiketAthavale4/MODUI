@@ -35,6 +35,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { AdminPaymentComponent } from './admin-dashboard/admin-payment/admin-payment.component';
 import { UserPaymentComponent } from './user-dashboard/user-payment/user-payment.component';
 import { MentorPaymentComponent } from './mentor-dashboard/mentor-payment/mentor-payment.component';
+import { MentorNotificationComponent } from './mentor-dashboard/mentor-notification/mentor-notification.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { MentorPaymentComponent } from './mentor-dashboard/mentor-payment/mentor
     AdminAddRemoveTechnologyComponent,
     AdminPaymentComponent,
     UserPaymentComponent,
-    MentorPaymentComponent
+    MentorPaymentComponent,
+    MentorNotificationComponent
   ],
   imports: [
     BrowserModule,

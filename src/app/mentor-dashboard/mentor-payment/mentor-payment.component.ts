@@ -49,7 +49,8 @@ export class MentorPaymentComponent implements OnInit {
         rating : null,
         startDate : null,
         timings : null,
-        trainerName : null
+        trainerName : null,
+        status : null
       }
     },
     {
@@ -63,7 +64,8 @@ export class MentorPaymentComponent implements OnInit {
         rating : null,
         startDate : null,
         timings : null,
-        trainerName : null
+        trainerName : null,
+        status : null
       }
     }
   ];

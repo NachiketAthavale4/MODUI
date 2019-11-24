@@ -22,7 +22,8 @@ export class CompletedTrainingComponent implements OnInit {
       rating : 4.2,
       technologyName : "HTML",
       timings : "09:30 AM - 11:30 AM",
-      userName : "Anakin Skywalker"
+      userName : "Anakin Skywalker",
+      status : null
     },
     {
       trainerName : "John Doe",
@@ -32,7 +33,8 @@ export class CompletedTrainingComponent implements OnInit {
       rating : 4.2,
       technologyName : "Angular",
       timings : "09:30 AM - 11:30 AM",
-      userName: "Lorem Ipsum"
+      userName: "Lorem Ipsum",
+      status : null
     }
   ]
 

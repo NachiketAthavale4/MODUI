@@ -7,4 +7,5 @@ export interface Training {
     trainerName : string;
     userName : string;
     technologyName : string;
+    status : string;
 }
