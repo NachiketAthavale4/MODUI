@@ -29,6 +29,7 @@ import { AdminCurrentTrainingComponent } from './admin-dashboard/admin-current-t
 import { AdminCompletedTrainingComponent } from './admin-dashboard/admin-completed-training/admin-completed-training.component';
 import { UserProfileComponent } from './user-dashboard/user-profile/user-profile.component';
 import { MentorProfileComponent } from './mentor-dashboard/mentor-profile/mentor-profile.component';
+import { AddBlockUserComponent } from './admin-dashboard/add-block-user/add-block-user.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { MentorProfileComponent } from './mentor-dashboard/mentor-profile/mentor
     AdminCurrentTrainingComponent,
     AdminCompletedTrainingComponent,
     UserProfileComponent,
-    MentorProfileComponent
+    MentorProfileComponent,
+    AddBlockUserComponent
   ],
   imports: [
     BrowserModule,

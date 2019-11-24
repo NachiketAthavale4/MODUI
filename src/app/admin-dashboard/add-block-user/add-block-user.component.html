@@ -1,0 +1,67 @@
+<div class="container-fluid col-12 col-sm-12 col-md-12 col-lg-12">
+        <h2 class="text-center">All Users</h2>
+        <br>
+            <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">User Name</th>
+                        <th scope="col">Email Id</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of userList; index as i;">
+                        <td>{{ user.UserName }}</td>
+                        <td>{{ user.EmailId }}</td>
+                        <td>
+                            <button class="btn btn-primary"
+                                    *ngIf="!user.Active"
+                                    (click)="UnblockUser(i)" type="submit">
+                                Unblock
+                            </button>
+                            <button class="btn btn-danger"
+                                    *ngIf="user.Active"
+                                    (click)="BlockUser($event, i)" 
+                                    type="submit">
+                                Block
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <br>
+        <h2 class="text-center">All Trainers</h2>
+        <br>
+        <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">User Name</th>
+                            <th scope="col">Email Id</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let trainer of trainerList; index as i;">
+                            <td>{{ trainer.UserName }}</td>
+                            <td>{{ trainer.EmailId }}</td>
+                            <td>
+                                <button class="btn btn-primary"
+                                        *ngIf="!trainer.Active"
+                                        (click)="UnblockTrainer(i)" type="submit">
+                                    Unblock
+                                </button>
+                                <button class="btn btn-danger"
+                                        *ngIf="trainer.Active"
+                                        (click)="BlockTrainer($event, i)" 
+                                        type="submit">
+                                    Block
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
