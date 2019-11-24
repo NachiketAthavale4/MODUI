@@ -1,0 +1,136 @@
+<div class="container-fluid col-12 col-sm-12 col-md-12 col-lg-12">
+    <h2 class="text-center">Technology</h2>
+    <br>
+    <div class="d-flex justify-content-end">
+        <button class="btn btn-success" type="button"
+                (click)="openModal(template)">
+            <b>+</b>
+        </button>
+    </div>
+    <br>
+        <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Toc</th>
+                    <th scope="col">Fees</th>
+                    <th scope="col">Prerequisites</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let technology of technologyList; index as i;">
+                    <td>
+                        <span *ngIf="enableEditIndex != i">
+                            {{ technology.name }}
+                        </span>
+                        <input type="text" class="form-control"
+                               [(ngModel)]="technology.name"
+                               *ngIf="enableEdit && enableEditIndex ==i">
+                    </td>
+                    <td>
+                        <span *ngIf="enableEditIndex != i">
+                            {{ technology.toc }}
+                        </span>
+                        <input type="text" class="form-control"
+                               [(ngModel)]="technology.toc"
+                               *ngIf="enableEdit && enableEditIndex ==i">
+                    </td>
+                    <td>
+                        <span *ngIf="enableEditIndex != i">
+                            <i class="fa fa-inr"></i>
+                            {{ technology.fees }}
+                        </span>
+                        <input type="number" class="form-control"
+                               [(ngModel)]="technology.fees"
+                               *ngIf="enableEdit && enableEditIndex ==i">
+                    </td>
+                    <td>
+                        <span *ngIf="enableEditIndex != i">
+                            {{ technology.prerequisites }}
+                        </span>
+                        <input type="text" class="form-control"
+                               [(ngModel)]="technology.prerequisites"
+                               *ngIf="enableEdit && enableEditIndex ==i">
+                    </td>
+                    <td>
+                        <button class="btn btn-primary"
+                            *ngIf="enableEdit && enableEditIndex ==i"
+                            (click)="saveSegment()" type="submit">
+                            Save
+                        </button>
+                        <button class="btn btn-primary"
+                            *ngIf="i != enableEditIndex || enableEditIndex == null"
+                            (click)="enableEditMethod($event, i)" type="submit">
+                            Edit
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger"
+                                type="submit" (click)="removeUser(i)">
+                            Remove
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Add New Technology</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="container">
+        <form #saveform = "ngForm">
+            <div class="row">
+                <label for="techNameId"><h5>Name</h5></label>
+                <input type="text" class="form-control" 
+                       id="techNameId" name="techName"
+                       [(ngModel)] = "newTechnology.name"
+                       placeholder="Add Technology Name">
+            </div>
+            <br>
+            <div class="row">
+                <label for="tocId"><h5>Table of Contents</h5></label>
+                <input type="text" class="form-control" 
+                       id="tocId" name="toc"
+                       [(ngModel)] = "newTechnology.toc"
+                       placeholder="Add Table of Contents">
+            </div>
+            <br>
+            <div class="row">
+                <label for="prerequisitesId"><h5>Prerequisites</h5></label>
+                <input type="text" class="form-control" 
+                       id="prerequisitesId" name="prerequisites"
+                       [(ngModel)] = "newTechnology.prerequisites"
+                       placeholder="Add Prerequisites">
+            </div>
+            <br>
+            <div class="row">
+                <label for="feesId"><h5>Fees</h5></label>
+                <input type="number" class="form-control" 
+                       id="feesId" name="feesName"
+                       [(ngModel)] = "newTechnology.fees"
+                       placeholder="Add Technology Fees">
+            </div>
+        </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary"
+            (click)="saveTechnology();modalRef.hide()">
+        Save
+    </button>
+    <button type="button" class="btn btn-secondary" 
+            aria-label="Close" (click)="modalRef.hide()">
+        Close
+    </button>
+  </div>
+</ng-template>

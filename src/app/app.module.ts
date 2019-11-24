@@ -30,6 +30,8 @@ import { AdminCompletedTrainingComponent } from './admin-dashboard/admin-complet
 import { UserProfileComponent } from './user-dashboard/user-profile/user-profile.component';
 import { MentorProfileComponent } from './mentor-dashboard/mentor-profile/mentor-profile.component';
 import { AddBlockUserComponent } from './admin-dashboard/add-block-user/add-block-user.component';
+import { AdminAddRemoveTechnologyComponent } from './admin-dashboard/admin-add-remove-technology/admin-add-remove-technology.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,8 @@ import { AddBlockUserComponent } from './admin-dashboard/add-block-user/add-bloc
     AdminCompletedTrainingComponent,
     UserProfileComponent,
     MentorProfileComponent,
-    AddBlockUserComponent
+    AddBlockUserComponent,
+    AdminAddRemoveTechnologyComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +73,8 @@ import { AddBlockUserComponent } from './admin-dashboard/add-block-user/add-bloc
     ]),
     BsDatepickerModule.forRoot(),
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
