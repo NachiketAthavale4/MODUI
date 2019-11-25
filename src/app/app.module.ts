@@ -37,6 +37,7 @@ import { UserPaymentComponent } from './user-dashboard/user-payment/user-payment
 import { MentorPaymentComponent } from './mentor-dashboard/mentor-payment/mentor-payment.component';
 import { MentorNotificationComponent } from './mentor-dashboard/mentor-notification/mentor-notification.component';
 import { UserNotificationComponent } from './user-dashboard/user-notification/user-notification.component';
+import { MentorSearchComponent } from './user-dashboard/mentor-search/mentor-search.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { UserNotificationComponent } from './user-dashboard/user-notification/us
     UserPaymentComponent,
     MentorPaymentComponent,
     MentorNotificationComponent,
-    UserNotificationComponent
+    UserNotificationComponent,
+    MentorSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -78,6 +80,33 @@ import { UserNotificationComponent } from './user-dashboard/user-notification/us
       { path: 'user-login', component: UserLoginComponent },
       { path: 'user-signup', component: UserSignupComponent },
       { path: 'trainer-signup', component: MentorSignupComponent },
+      { 
+        path: 'admin-dashboard', 
+        component: AdminDashboardComponent,
+        children: [
+          {
+            path: '', redirectTo: 'welcome', pathMatch: 'full'
+          },
+          {
+            path: 'welcome', component: AdminWelcomeScreenComponent
+          },
+          {
+            path: 'current-training', component: AdminCurrentTrainingComponent
+          },
+          {
+            path: 'completed-training', component: AdminCompletedTrainingComponent
+          },
+          {
+            path: 'payment', component: AdminPaymentComponent
+          },
+          {
+            path: 'edit-users', component: AddBlockUserComponent
+          },
+          {
+            path: 'technology', component: AdminAddRemoveTechnologyComponent
+          }
+        ] 
+      },
       { path: '', component: DashboardComponent }
       //{ path: '', redirectTo: 'user-login', pathMatch: 'full' }
     ]),

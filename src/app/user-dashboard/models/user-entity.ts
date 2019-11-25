@@ -9,4 +9,5 @@ export interface UserEntity {
     LinkedInUrl : string;
     YearsOfExperience : number;
     TechnologyId : number;
+    TechnologyName : string;
 }

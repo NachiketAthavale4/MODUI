@@ -33,7 +33,8 @@ export class UserProfileComponent implements OnInit {
     Role : "U",
     TechnologyId : null,
     UserName: "idontthinkso32",
-    YearsOfExperience : null
+    YearsOfExperience : null,
+    TechnologyName : null
   }
 
 }

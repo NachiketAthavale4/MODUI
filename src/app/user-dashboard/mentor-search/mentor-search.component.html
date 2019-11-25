@@ -1,0 +1,23 @@
+<div class="container-fluid col-12 col-sm-12 col-md-12 col-lg-12">
+    <h5 class="text-center">
+        Search Result for "{{ searchTerm }}"
+    </h5>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div *ngFor="let mentor of trainerList;index as i;" 
+                 class="border border-dark">
+                <div class="d-flex justify-content-center">
+                <img src="../../../assets/images/default_user.png"
+                     style="max-width: 50%; height: auto;"
+                     class="border border-dark">
+                </div>
+                <h6 class="text-center">{{ mentor.FirstName }} {{ mentor.LastName }}</h6>
+                <h6>Expertise Technology : <small>{{ mentor.TechnologyName }}</small></h6>
+                <h6>Years of Experience : <small>{{ mentor.YearsOfExperience }}</small></h6>
+                <h6>Linked In Profile : <small><a href="mentor.LinkedInUrl">Here</a></small></h6>
+            </div>
+        </div>
+    </div>
+</div>
