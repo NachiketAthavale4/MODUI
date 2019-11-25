@@ -1,3 +1,5 @@
+import { Technology } from './Technology';
+
 export interface Training {
     rating : number;
     progress : number;
@@ -6,4 +8,7 @@ export interface Training {
     startDate : Date;
     trainerName : string;
     technologyName : string;
+    technology : Technology;
+    status : string;
+    commission : number
 }

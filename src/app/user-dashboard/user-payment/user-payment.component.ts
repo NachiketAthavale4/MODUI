@@ -18,13 +18,17 @@ export class UserPaymentComponent implements OnInit {
       TechnologyName : "Angular",
       Status : "Done",
       Tax : null,
-      Fees : 6000
+      Fees : 6000,
+      MentorFees : null,
+      TransactionType : null
     },
     {
       TechnologyName : "Bootstrap",
       Status : "Pending",
       Tax : null,
-      Fees : 4000
+      Fees : 4000,
+      MentorFees : null,
+      TransactionType : null
     }
   ];
 

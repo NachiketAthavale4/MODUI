@@ -3,4 +3,6 @@ export interface UserPayment {
     Fees : number;
     Tax : number;
     Status : string;
+    MentorFees : number;
+    TransactionType : string;
 }

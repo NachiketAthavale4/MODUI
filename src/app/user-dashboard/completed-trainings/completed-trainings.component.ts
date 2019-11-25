@@ -33,7 +33,10 @@ export class CompletedTrainingsComponent implements OnInit {
       progress : 67,
       rating : 4.2,
       technologyName : "HTML",
-      timings : "09:30 AM - 11:30 AM"
+      timings : "09:30 AM - 11:30 AM",
+      status : null,
+      technology : null,
+      commission : null
     },
     {
       trainerName : "John Doe",
@@ -42,7 +45,10 @@ export class CompletedTrainingsComponent implements OnInit {
       progress : 100,
       rating : 4.2,
       technologyName : "Angular",
-      timings : "09:30 AM - 11:30 AM"
+      timings : "09:30 AM - 11:30 AM",
+      status : null,
+      technology : null,
+      commission : null
     }
   ]
 

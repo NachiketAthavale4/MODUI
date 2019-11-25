@@ -1,0 +1,118 @@
+<div class="container-fluid col-12 col-sm-12 col-md-12 col-lg-12">
+    <h2 class="text-center">Requests Status</h2>
+    <br>
+    <div class="row">
+        <div class="col-12 col-lg-4">
+            <div class="d-flex justify-content-center bg-info text-white rounded p-1">
+                Pending
+            </div>
+            <table class="table table-striped">
+                <tbody>
+                    <tr *ngFor="let pendingitem of pendingList; index as i;">
+                        <td>
+                            You requested for {{ pendingitem.technologyName }} 
+                            under {{ pendingitem.trainerName }}
+                            from {{ pendingitem.startDate | date }} to {{ pendingitem.endDate | date }} 
+                            on time {{ pendingitem.timings }}
+                            <br><br>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-12 col-lg-4">
+            <div class="d-flex justify-content-center bg-success text-white rounded p-1">
+                Accepted
+            </div>
+            <table class="table table-striped">
+                <tbody>
+                    <tr *ngFor="let pendingitem of acceptedList; index as i;">
+                        <td>
+                            You requested for {{ pendingitem.technologyName }} 
+                            under {{ pendingitem.trainerName }}
+                            from {{ pendingitem.startDate | date }} to {{ pendingitem.endDate | date }} 
+                            on time {{ pendingitem.timings }}
+                            <br><br>
+                            <button type="button" class="btn btn-info"
+                                    *ngIf="pendingitem.status == 'Accepted'"
+                                    (click)="openModal(template,i)">
+                                Make Payment
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-12 col-lg-4">
+            <div class="d-flex justify-content-center bg-danger text-white rounded p-1">
+                Rejected
+            </div>
+            <table class="table table-striped">
+                <tbody>
+                    <tr *ngFor="let pendingitem of rejectedList">
+                        <td>
+                            You requested for {{ pendingitem.technologyName }} 
+                            under {{ pendingitem.trainerName }}
+                            from {{ pendingitem.startDate | date }} to {{ pendingitem.endDate | date }} 
+                            on time {{ pendingitem.timings }}
+                            <br><br>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Payment Details</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="container">
+          <form #saveform = "ngForm">
+                <div class="row">
+                    <label for="technologyId"><h5>Technology</h5></label>
+                    <input type="text" class="form-control" 
+                           id="technologyId" name="technologyName"
+                           [(ngModel)] = "payment.TechnologyName" readonly>
+                </div>
+              <br>
+              <div class="row">
+                  <label for="transactionTypeId"><h5>Transaction Type</h5></label>
+                  <input type="text" class="form-control" 
+                         id="transactionTypeId" name="transactionType"
+                         [(ngModel)] = "payment.TransactionType"
+                         placeholder="Add Transaction Type">
+              </div>
+              <br>
+              <div class="row">
+                  <label for="feesId"><h5>Fees</h5></label>
+                  <input type="text" class="form-control" 
+                         id="feesId" name="fees"
+                         [(ngModel)] = "payment.Fees" readonly>
+              </div>
+              <br>
+              <div class="row">
+                    <label for="mentorFeesId"><h5>Mentor Fees</h5></label>
+                    <input type="text" class="form-control" 
+                           id="mentorFeesId" name="mentorFees"
+                           [(ngModel)] = "payment.MentorFees" readonly>
+              </div>
+          </form>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary"
+              (click)="makePayment(i);modalRef.hide()">
+          Pay Amount
+      </button>
+      <button type="button" class="btn btn-secondary" 
+              aria-label="Close" (click)="modalRef.hide()">
+          Close
+      </button>
+    </div>
+  </ng-template>

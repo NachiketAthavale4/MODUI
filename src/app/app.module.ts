@@ -36,6 +36,7 @@ import { AdminPaymentComponent } from './admin-dashboard/admin-payment/admin-pay
 import { UserPaymentComponent } from './user-dashboard/user-payment/user-payment.component';
 import { MentorPaymentComponent } from './mentor-dashboard/mentor-payment/mentor-payment.component';
 import { MentorNotificationComponent } from './mentor-dashboard/mentor-notification/mentor-notification.component';
+import { UserNotificationComponent } from './user-dashboard/user-notification/user-notification.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { MentorNotificationComponent } from './mentor-dashboard/mentor-notificat
     AdminPaymentComponent,
     UserPaymentComponent,
     MentorPaymentComponent,
-    MentorNotificationComponent
+    MentorNotificationComponent,
+    UserNotificationComponent
   ],
   imports: [
     BrowserModule,
