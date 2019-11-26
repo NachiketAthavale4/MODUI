@@ -80,6 +80,33 @@ import { MentorSearchComponent } from './user-dashboard/mentor-search/mentor-sea
       { path: 'user-login', component: UserLoginComponent },
       { path: 'user-signup', component: UserSignupComponent },
       { path: 'trainer-signup', component: MentorSignupComponent },
+      {
+        path: 'mentor-dashboard', 
+        component: MentorDashboardComponent,
+        children: [
+          {
+            path: '', redirectTo: 'welcome', pathMatch: 'full'
+          },
+          {
+            path: 'welcome', component: MentorWelcomeScreenComponent
+          },
+          {
+            path: 'current-training', component: MentorCurrentTrainingComponent
+          },
+          {
+            path: 'completed-training', component: CompletedTrainingComponent
+          },
+          {
+            path: 'profile', component: MentorProfileComponent
+          },
+          {
+            path: 'payment', component: MentorPaymentComponent
+          },
+          {
+            path: 'notifications', component: MentorNotificationComponent
+          }
+        ]
+      },
       { 
         path: 'admin-dashboard', 
         component: AdminDashboardComponent,
