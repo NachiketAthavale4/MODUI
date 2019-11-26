@@ -1,0 +1,11 @@
+#textcenter {
+    text-align: center;
+}
+
+#containerbackground {
+    background-color: gray;
+}
+
+.field-error {
+    border: 1px solid red;
+}

@@ -1,0 +1,186 @@
+<div class="container">
+    <form #form="ngForm">
+        <div class="row">
+            <div class="col-xs-12 col-12 col-md-4 form-group">
+                <label for="emailId">
+                    Enter your email Id:
+                </label>
+                <input type="text" class="form-control" 
+                    id="emailId" name="emailFieldName" ngModel
+                    required #emailField = "ngModel"
+                    [class.field-error] = "form.submitted && emailField.invalid">
+                <div [hidden] = "!form.submitted || userNameField.valid"
+                     class="alert alert-danger">
+                   Email is required
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-12 col-md-4 form-group">
+                <label for="userName">
+                    Enter Username:
+                </label>
+                <input type="text" class="form-control" 
+                    id="userName" name="userNameField" ngModel
+                    required #userNameField = "ngModel"
+                    [class.field-error] = "form.submitted && userNameField.invalid">
+                <div [hidden] = "!form.submitted || userNameField.valid"
+                     class="alert alert-danger">
+                    Username is required
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+                <div class="col-xs-12 col-12 col-md-4 form-group">
+                    <label for="userPassword">
+                        Set password:
+                    </label>
+                    <show-hide-password btnStyle="secondary"
+                                        [btnOutline]="false">
+                        <input type="password" name="password"
+                               autocomplete="new-password"
+                               id="userPassword" ngModel
+                               required #passFieldUser = "ngModel"
+                               [class.field-error] = "form.submitted && passFieldUser.invalid">
+                    </show-hide-password>
+                    <div [hidden] = "!form.submitted || passFieldUser.valid"
+                         class="alert alert-danger">
+                        Password is required
+                    </div>
+                    <label for="userPassword" id="passwordInstruction">
+                            (Password length should be greater than 6, having at least 1 digit)
+                    </label>
+                </div>
+                
+                    
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-12 col-md-4 form-group">
+                <label for="confirmPassword">
+                    Confirm password:
+                </label>
+                <show-hide-password btnStyle="secondary"
+                                    [btnOutline]="false">
+                    <input type="password" name="password"
+                           autocomplete="new-password"
+                           id="confirmPassword">
+                </show-hide-password>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-12 col-md-4 form-group">
+                <label for="firstName">
+                    Enter First Name:
+                </label>
+                <input type="text" class="form-control" 
+                       id="firstName">
+            </div>
+
+            <div class="col-xs-12 col-12 col-md-4 form-group">
+                    <label for="lastName">
+                        Enter Last Name:
+                    </label>
+                    <input type="text" class="form-control" 
+                           id="lastName">
+                </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-12 col-md-4 form-group">
+                <label for="contactNumber">
+                            Enter Contact Number:
+                </label>
+                <input type="text" class="form-control" 
+                       id="contactNumber">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-12 col-md-4 form-group">
+                <label for="userRole">
+                    Set Your Role:
+                </label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-12 col-md-4 form-group">
+                <div class="btn-group" btnRadioGroup>
+                    <label class="btn btn-success" btnRadio="Left"
+                            tabindex="0" role="button" id="userRole"
+                            (click)="onRoleSet($event,'User')">
+                        User
+                    </label>
+                    <label class="btn btn-success" btnRadio="Middle"
+                            tabindex="0" role="button" id="userRole"
+                            (click)="onRoleSet($event,'Mentor')">
+                        Mentor
+                    </label>
+                    <label class="btn btn-success" btnRadio="Right"
+                            tabindex="0" role="button" id="userRole"
+                            (click)="onRoleSet($event,'Admin')">
+                        Admin
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" *ngIf="profileMentor">
+                <div class="col-xs-12 col-12 col-md-4 form-group">
+                    <label for="yearsOfExp">
+                        Experience (in Years):
+                    </label>
+                    <input type="number" id="yearsOfExp" 
+                           class="form-control">
+                </div>
+    
+                <div class="col-xs-12 col-12 col-md-4 form-group">
+                        <label for="linkedInUrl">
+                            LinkedIn Profile Url:
+                        </label>
+                        <input type="text" id="linkedInUrl" 
+                               class="form-control">
+                </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-12 col-md-4 form-group">
+                <label for="userRole">
+                    Set Account Status:
+                </label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-12 col-md-4 form-group">
+                <div class="btn-group" btnRadioGroup>
+                    <label class="btn btn-success" btnRadio="Left"
+                           tabindex="0" role="button" 
+                           id="userStatus">
+                        Active
+                    </label>
+                    <label class="btn btn-success" 
+                           btnRadio="Middle"
+                           tabindex="0" role="button" 
+                           id="userStatus">
+                        Inactive
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-12 col-md-4 form-group">
+                <button class="btn btn-success" type="submit" 
+                        id="centeralign">
+                    Submit
+                </button>
+            </div>
+        </div>
+
+    </form>
+</div>

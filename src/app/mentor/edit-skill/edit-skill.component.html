@@ -1,0 +1,44 @@
+<div class="container">
+        <form #form="ngForm">
+            <div class="row">
+                <div class="col-xs-12 col-12 col-md-4 form-group">
+                    <label for="newSkill">
+                        Select New Skill:
+                    </label>
+                    <select class="form-control" id="newSkill">
+                        <option *ngFor="let skill of skillSet">
+                            {{ skill }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-xs-12 col-12 col-md-4 form-group">
+                    <label for="skillToc">
+                        Add Table of Contents:
+                    </label>
+                    <input type="text" class="form-control" 
+                           id="skillToc">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-12 col-md-4 form-group">
+                    <label for="skillPrerequisites">
+                        Add Table of Contents:
+                    </label>
+                    <input type="text" class="form-control" 
+                               id="skillPrerequisites">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-12 col-md-4 form-group">
+                    <button class="btn btn-success" type="submit">
+                        Add Skill
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>

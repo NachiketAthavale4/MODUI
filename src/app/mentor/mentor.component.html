@@ -1,0 +1,98 @@
+<div class="container">
+    <form #form="ngForm">
+        <div class="row">
+            <div class="col-xs-12 col-12 col-md-4 form-group">
+                <label for="courseName">
+                    Enter Course Name:
+                </label>
+                <input type="text" class="form-control" 
+                   id="courseName">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-xs-12 col-12 col-md-4 form-group">
+                <label for="courseTechnology">
+                    Enter Course Technology:
+                </label>
+                <input type="text" class="form-control" 
+                   id="courseTechnology">
+            </div>
+        </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-12 col-md-4 form-group">
+            <label for="startDate">
+                Course Start Date
+            </label>
+            <input  type="text"
+                    placeholder="Enter Start Date"
+                    class="form-control"
+                    bsDatepicker
+                    [bsConfig]="{ adaptivePosition: true }"
+                    id="startDate">
+        </div>
+
+        <div class="col-xs-12 col-12 col-md-4 form-group">
+            <label for="endDate">
+                Course End Date
+            </label>
+            <input  type="text"
+                    placeholder="Enter End Date"
+                    class="form-control"
+                    bsDatepicker
+                    [bsConfig]="{ adaptivePosition: true }"
+                    id="endDate">
+        </div>
+    </div>
+  
+    <div class="row">
+        <div class="col-xs-12 col-12 col-md-4 form-group">
+            <label for="startTime">Course Start Time</label>
+            <timepicker id="startTime"></timepicker>
+        </div>
+
+        <div class="col-xs-12 col-12 col-md-4 form-group">
+                <label for="startTime">Course End Time</label>
+                <timepicker id="startTime"></timepicker>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-12 col-md-4 form-group">
+            <label for="courseStatus">Set Course Status</label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-12 col-md-4 form-group">
+            <div class="btn-group" btnRadioGroup>
+                <label class="btn btn-success" btnRadio="Left"
+                    tabindex="0" role="button" id="courseStatus">
+                    Active
+                </label>
+                <label class="btn btn-success" btnRadio="Middle"
+                    tabindex="0" role="button" id="courseStatus">
+                    Inactive
+                </label>
+            </div>
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-12 col-md-4 form-group">
+                <label for="courseFees">Enter Course Fees</label>
+                <input id="courseFees" class="form-control" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-12 col-md-4 form-group">
+                <button class="btn btn-success" type="submit">
+                    Add Training
+                </button>
+            </div>
+        </div>
+
+    </form>
+</div>

@@ -1,177 +1,38 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserLoginComponent } from './user-login/user-login.component';
-import { FormsModule } from '@angular/forms';
-import { UserSignupComponent } from './user-signup/user-signup/user-signup.component';
-import { MentorSignupComponent } from './user-signup/mentor-signup/mentor-signup.component';
-import { RouterModule } from '@angular/router';
+import { MentorComponent } from './mentor/mentor.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
-import { WelcomeScreenComponent } from './user-dashboard/welcome/welcome-screen/welcome-screen.component';
-import { DashboardComponent } from './user-dashboard/dashboard/dashboard.component';
-import { UserWelcomeScreenComponent } from './user-dashboard/user-welcome-screen/user-welcome-screen.component';
-import { AdminWelcomeScreenComponent } from './admin-dashboard/admin-welcome-screen/admin-welcome-screen.component';
-import { TrainingDetailComponent } from './user-dashboard/training-request/training-detail/training-detail.component';
-import { TrainingFormComponent } from './user-dashboard/training-request/training-form/training-form.component';
-import { TrainingRequestComponent } from './user-dashboard/training-request/training-request.component';
-import { MentorDashboardComponent } from './mentor-dashboard/mentor-dashboard/mentor-dashboard.component';
-import { MentorWelcomeScreenComponent } from './mentor-dashboard/mentor-welcome-screen/mentor-welcome-screen.component';
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard/admin-dashboard.component';
-import { CompletedTrainingsComponent } from './user-dashboard/completed-trainings/completed-trainings.component';
-import { CurrentTrainingComponent } from './user-dashboard/current-training/current-training.component';
-import { CompletedTrainingComponent } from './mentor-dashboard/completed-training/completed-training.component';
-import { MentorCurrentTrainingComponent } from './mentor-dashboard/mentor-current-training/mentor-current-training.component';
-import { AdminCurrentTrainingComponent } from './admin-dashboard/admin-current-training/admin-current-training.component';
-import { AdminCompletedTrainingComponent } from './admin-dashboard/admin-completed-training/admin-completed-training.component';
-import { UserProfileComponent } from './user-dashboard/user-profile/user-profile.component';
-import { MentorProfileComponent } from './mentor-dashboard/mentor-profile/mentor-profile.component';
-import { AddBlockUserComponent } from './admin-dashboard/add-block-user/add-block-user.component';
-import { AdminAddRemoveTechnologyComponent } from './admin-dashboard/admin-add-remove-technology/admin-add-remove-technology.component';
-import { ModalModule } from 'ngx-bootstrap/modal';
-import { AdminPaymentComponent } from './admin-dashboard/admin-payment/admin-payment.component';
-import { UserPaymentComponent } from './user-dashboard/user-payment/user-payment.component';
-import { MentorPaymentComponent } from './mentor-dashboard/mentor-payment/mentor-payment.component';
-import { MentorNotificationComponent } from './mentor-dashboard/mentor-notification/mentor-notification.component';
-import { UserNotificationComponent } from './user-dashboard/user-notification/user-notification.component';
-import { MentorSearchComponent } from './user-dashboard/mentor-search/mentor-search.component';
+import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { UserComponent } from './user/user.component';
+import { ShowHidePasswordModule } from 'ngx-show-hide-password';
+import { UserLoginComponent } from './user/user-login/user-login.component';
+import { ResetPasswordComponent } from './user/reset-password/reset-password.component';
+import { EditSkillComponent } from './mentor/edit-skill/edit-skill.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    MentorComponent,
+    UserComponent,
     UserLoginComponent,
-    UserSignupComponent,
-    MentorSignupComponent,
-    WelcomeScreenComponent,
-    DashboardComponent,
-    UserWelcomeScreenComponent,
-    AdminWelcomeScreenComponent,
-    TrainingDetailComponent,
-    TrainingFormComponent,
-    TrainingRequestComponent,
-    MentorDashboardComponent,
-    MentorWelcomeScreenComponent,
-    AdminDashboardComponent,
-    CompletedTrainingsComponent,
-    CurrentTrainingComponent,
-    CompletedTrainingComponent,
-    MentorCurrentTrainingComponent,
-    AdminCurrentTrainingComponent,
-    AdminCompletedTrainingComponent,
-    UserProfileComponent,
-    MentorProfileComponent,
-    AddBlockUserComponent,
-    AdminAddRemoveTechnologyComponent,
-    AdminPaymentComponent,
-    UserPaymentComponent,
-    MentorPaymentComponent,
-    MentorNotificationComponent,
-    UserNotificationComponent,
-    MentorSearchComponent
+    ResetPasswordComponent,
+    EditSkillComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    RouterModule.forRoot([
-      { path: 'user-login', component: UserLoginComponent },
-      { path: 'user-signup', component: UserSignupComponent },
-      { path: 'trainer-signup', component: MentorSignupComponent },
-      {
-        path: 'user-dashboard',
-        component: DashboardComponent,
-        children: [
-          { path: '', redirectTo: 'welcome', pathMatch: 'full' },
-          {
-            path: 'welcome', component: UserWelcomeScreenComponent
-          },
-          {
-            path: 'current-training', component: CurrentTrainingComponent
-          },
-          {
-            path: 'completed-training', component: CompletedTrainingsComponent
-          },
-          {
-            path: 'profile', component: UserProfileComponent
-          },
-          {
-            path: 'payment', component: UserPaymentComponent
-          },
-          {
-            path: 'notifications', component: UserNotificationComponent
-          },
-          {
-            path: 'search', component: MentorSearchComponent
-          },
-          {
-            path: 'training-request', component: TrainingRequestComponent
-          }
-        ]
-      },
-      {
-        path: 'mentor-dashboard', 
-        component: MentorDashboardComponent,
-        children: [
-          {
-            path: '', redirectTo: 'welcome', pathMatch: 'full'
-          },
-          {
-            path: 'welcome', component: MentorWelcomeScreenComponent
-          },
-          {
-            path: 'current-training', component: MentorCurrentTrainingComponent
-          },
-          {
-            path: 'completed-training', component: CompletedTrainingComponent
-          },
-          {
-            path: 'profile', component: MentorProfileComponent
-          },
-          {
-            path: 'payment', component: MentorPaymentComponent
-          },
-          {
-            path: 'notifications', component: MentorNotificationComponent
-          }
-        ]
-      },
-      { 
-        path: 'admin-dashboard', 
-        component: AdminDashboardComponent,
-        children: [
-          {
-            path: '', redirectTo: 'welcome', pathMatch: 'full'
-          },
-          {
-            path: 'welcome', component: AdminWelcomeScreenComponent
-          },
-          {
-            path: 'current-training', component: AdminCurrentTrainingComponent
-          },
-          {
-            path: 'completed-training', component: AdminCompletedTrainingComponent
-          },
-          {
-            path: 'payment', component: AdminPaymentComponent
-          },
-          {
-            path: 'edit-users', component: AddBlockUserComponent
-          },
-          {
-            path: 'technology', component: AdminAddRemoveTechnologyComponent
-          }
-        ] 
-      },
-      { path: '', component: DashboardComponent }
-      //{ path: '', redirectTo: 'user-login', pathMatch: 'full' }
-    ]),
     BsDatepickerModule.forRoot(),
     BrowserAnimationsModule,
-    HttpClientModule,
-    ModalModule.forRoot()
+    TimepickerModule.forRoot(),
+    FormsModule,
+    ShowHidePasswordModule,
+    ButtonsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
