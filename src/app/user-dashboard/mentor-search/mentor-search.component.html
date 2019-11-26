@@ -5,9 +5,8 @@
     <br>
     <br>
     <div class="row">
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div *ngFor="let mentor of trainerList;index as i;" 
-                 class="border border-dark">
+        <div *ngFor="let mentor of trainerList;index as i;" 
+                 class="border border-dark col-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="d-flex justify-content-center">
                 <img src="../../../assets/images/default_user.png"
                      style="max-width: 50%; height: auto;"
@@ -24,6 +23,5 @@
                     </button>
                 </div>
             </div>
-        </div>
     </div>
 </div>

@@ -30,11 +30,15 @@
             <a class="nav-link" [routerLink]="['payment']">Payments</a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0 ml-auto">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search Technology" aria-label="Search">
+      <input class="col-12 col-sm-3 col-md-3 col-lg-3 form-control mr-sm-2" type="text" 
+               placeholder="Search Technology" 
+               [(ngModel)]="searchItem">
         <button class="btn btn-outline-success my-2 my-sm-0" 
-                type="submit" [routerLink]="['search']">Search</button>
-      </form>
+                type="submit" 
+                [routerLink]="['search']"
+                [queryParams] = "{ searchterm: searchItem }">
+          Search
+        </button>
       <ul class="navbar-nav ml-auto">
           <li class="nav-item">
               <a class="nav-link" [routerLink]="['notifications']">Notifications</a>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,10 +13,18 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
   }
 
+  searchItem : string = null;
+
   collapsed : boolean = true;
 
   toggleCollapsed(): void {
     this.collapsed = !this.collapsed;
   }
+  
+
+  onSubmit(form : NgForm){
+
+  }
+  
 
 }
